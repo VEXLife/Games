@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI/Heart.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/HUD.gd" type="Script" id=2]
+[ext_resource path="res://assets/fullheart.png" type="Texture" id=3]
+[ext_resource path="res://UI/ItemUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/key_S.png" type="Texture" id=5]
+[ext_resource path="res://assets/jewel.png" type="Texture" id=6]
+[ext_resource path="res://assets/key_Y.png" type="Texture" id=7]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="HUD" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+anchor_right = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HP" type="MarginContainer" parent="HUD/HBoxContainer"]
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="EmptyHeart" parent="HUD/HBoxContainer/HP" instance=ExtResource( 1 )]
+margin_right = 0.0
+margin_bottom = 0.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Heart" parent="HUD/HBoxContainer/HP/EmptyHeart/Container" index="0"]
+margin_top = 5.0
+margin_right = 20.0
+margin_bottom = 15.0
+
+[node name="FullHeart" parent="HUD/HBoxContainer/HP" instance=ExtResource( 1 )]
+margin_right = 0.0
+margin_bottom = 0.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Container" parent="HUD/HBoxContainer/HP/FullHeart" index="0"]
+rect_min_size = Vector2( 0, 20 )
+
+[node name="Heart" parent="HUD/HBoxContainer/HP/FullHeart/Container" index="0"]
+margin_top = 5.0
+margin_right = 20.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 0, 10 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Possessions" type="HBoxContainer" parent="HUD/HBoxContainer"]
+margin_left = 604.0
+margin_right = 840.0
+margin_bottom = 32.0
+size_flags_vertical = 0
+
+[node name="Key_Y" parent="HUD/HBoxContainer/Possessions" instance=ExtResource( 4 )]
+margin_right = 56.0
+margin_bottom = 32.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="Item" parent="HUD/HBoxContainer/Possessions/Key_Y" index="0"]
+texture = ExtResource( 7 )
+
+[node name="Key_S" parent="HUD/HBoxContainer/Possessions" instance=ExtResource( 4 )]
+margin_left = 60.0
+margin_right = 116.0
+margin_bottom = 32.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="Item" parent="HUD/HBoxContainer/Possessions/Key_S" index="0"]
+texture = ExtResource( 5 )
+
+[node name="Jewel" parent="HUD/HBoxContainer/Possessions" instance=ExtResource( 4 )]
+margin_left = 120.0
+margin_right = 176.0
+margin_bottom = 32.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="Item" parent="HUD/HBoxContainer/Possessions/Jewel" index="0"]
+texture = ExtResource( 6 )
+
+[node name="Coin" parent="HUD/HBoxContainer/Possessions" instance=ExtResource( 4 )]
+margin_left = 180.0
+margin_right = 236.0
+margin_bottom = 32.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[editable path="HUD/HBoxContainer/HP/EmptyHeart"]
+
+[editable path="HUD/HBoxContainer/HP/FullHeart"]
+
+[editable path="HUD/HBoxContainer/Possessions/Key_Y"]
+
+[editable path="HUD/HBoxContainer/Possessions/Key_S"]
+
+[editable path="HUD/HBoxContainer/Possessions/Jewel"]

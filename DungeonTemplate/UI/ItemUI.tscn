@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/ItemUI.gd" type="Script" id=1]
+[ext_resource path="res://assets/coin.png" type="Texture" id=2]
+
+[node name="ItemUI" type="HBoxContainer"]
+margin_right = 28.0
+margin_bottom = 16.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" type="TextureRect" parent="."]
+margin_right = 32.0
+margin_bottom = 32.0
+size_flags_vertical = 4
+texture = ExtResource( 2 )
+stretch_mode = 3
+
+[node name="Count" type="Label" parent="."]
+margin_left = 36.0
+margin_top = 9.0
+margin_right = 56.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 20, 0 )
+text = "0"
+valign = 1
